@@ -1,31 +1,46 @@
-/* Refer to https://github.com/OleksiyRudenko/a-tiny-JS-world for the task details
-   Complete the below for code reviewers' convenience:
+class Inhabitant {
+  constructor(species, name, legs, hands, gender, saying) {
+    this.species = species;
+    this.name = name;
+    this._legs = legs;
+    this.gender = gender;
+    this.saying = saying;
+    this.constants = {
+      props: ['species', 'name', 'gender', 'legs', 'saying'],
+    };
+  }
 
-   Code repository: _put repo URL here_
-   Web app: _put project's github pages URL here_
-   */
+  toString() {
+    return ['species', 'name', 'gender', 'legs', 'saying']
+      .map(prop => this[prop]).join('; ');
+  }
+}
 
-// ======== OBJECTS DEFINITIONS ========
-// Define your objects here
+class Dog extends Inhabitant {
+  constructor(name, gender, legs = 4, saying = 'woof') {
+    super('dog', name, legs, gender, saying);
+  }
+}
+
+class Human extends Inhabitant {
+  constructor(name, gender, saying) {
+    super('human', name, 2, gender, saying);
+    this.hands = 2;
+  }
+
+  toString() {
+    return super.toString() + this.hands + '; ';
+  }
+}
+
+const heDog = new Dog('Bolt',
+   'male', 4, 'GAFF');
+const man = new Human('Jake', 'male', 'Horray!');
+const woman = new Human('Jane', 'female', 'Mee-mee-mee!');
+
+[man, woman, heDog].forEach(printElement);
 
 
-// ======== OUTPUT ========
-/* Use print(message) for output.
-   Default tag for message is <pre>. Use print(message,'div') to change containing element tag.
-
-   Message can contain HTML markup. You may also tweak index.html and/or styles.css.
-   However, please, REFRAIN from improving visuals at least until your code is reviewed
-   so code reviewers might focus on a single file that is index.js.
-   */
-
-/* Print examples:
-   print('ABC');
-   print('<strong>ABC</strong>');
-   print('<strong>ABC</strong>', 'div');
-
-   print('human; John; male; 2; 2; Hello world!; Rex, Tom, Jenny');
-   print('human; <strong>John</strong>; male; 2; 2; <em>Hello world!</em>; Rex, Tom, Jenny');
-   print('human; <strong>John</strong>; male; 2; 2; <em>Hello world!</em>; Rex, Tom, Jenny', 'div');
-   */
-
-
+function printInhabitant(inhabitant) {
+  inhabitant.toString();
+}

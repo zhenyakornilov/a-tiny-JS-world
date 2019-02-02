@@ -1,5 +1,5 @@
-function print(message, tag = 'pre') {
-  var element = document.createElement(tag);
+function printElement(message) {
+  var element = document.createElement('div');
   element.innerHTML = message;
   console.log('PRINT:', message);
   document.getElementById('main').appendChild(element);
