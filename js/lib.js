@@ -1,4 +1,4 @@
-function print(message, tag = 'pre') {
+function printElement(message, tag = 'pre') {
   var element = document.createElement(tag);
   element.innerHTML = message;
   console.log('PRINT:', message);
