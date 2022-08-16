@@ -64,8 +64,12 @@ for (let inhabitant of inhabitants) {
   print(
     properties
       .map((key) => {
-        if (key === "friends" && key in inhabitant) {
-          return inhabitant[key].map((friend) => friend.name).join(", ");
+        if (key === "friends") {
+          if (key in inhabitant) {
+            return inhabitant[key].map((friend) => friend.name).join(", ");
+          } else {
+            return "No friends";
+          }
         }
         return inhabitant[key];
       })
