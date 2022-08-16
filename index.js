@@ -41,9 +41,9 @@ const man = {
 
 const catWoman = Object.create(cat);
 
-catWoman.species = 'catwoman';
-catWoman.name = 'Selina';
-catWoman.gender = 'female';
+catWoman.species = "catwoman";
+catWoman.name = "Selina";
+catWoman.gender = "female";
 catWoman.paws = 0;
 catWoman.legs = 2;
 catWoman.hands = 2;
@@ -61,12 +61,16 @@ const properties = [
 ];
 
 for (let inhabitant of inhabitants) {
-  print(properties.map((key) => {
-    if (key === 'friends' && key in inhabitant) {
-      let friends = []
-      inhabitant[key].forEach(friend => friends.push(friend.name))
-      return friends.join(', ') + ';';
-    } 
-    return inhabitant[key]
-  }).join("; "));
+  print(
+    properties
+      .map((key) => {
+        if (key === "friends" && key in inhabitant) {
+          let friends = [];
+          inhabitant[key].forEach((friend) => friends.push(friend.name));
+          return friends.join(", ") + ";";
+        }
+        return inhabitant[key];
+      })
+      .join("; ")
+  );
 }
