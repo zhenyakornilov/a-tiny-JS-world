@@ -65,9 +65,7 @@ for (let inhabitant of inhabitants) {
     properties
       .map((key) => {
         if (key === "friends" && key in inhabitant) {
-          let friends = [];
-          inhabitant[key].forEach((friend) => friends.push(friend.name));
-          return friends.join(", ") + ";";
+          return inhabitant[key].map((friend) => friend.name).join(", ") + ";";
         }
         return inhabitant[key];
       })
