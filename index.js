@@ -56,8 +56,8 @@ const properties = [
   "paws",
   "legs",
   "hands",
-  "saying",
   "friends",
+  "saying",
 ];
 
 for (let inhabitant of inhabitants) {
@@ -65,7 +65,7 @@ for (let inhabitant of inhabitants) {
     properties
       .map((key) => {
         if (key === "friends" && key in inhabitant) {
-          return inhabitant[key].map((friend) => friend.name).join(", ") + ";";
+          return inhabitant[key].map((friend) => friend.name).join(", ");
         }
         return inhabitant[key];
       })
