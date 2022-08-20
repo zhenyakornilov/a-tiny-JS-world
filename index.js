@@ -86,7 +86,14 @@ class Inhabitant {
     this.legs = legs;
     this.hands = hands;
     this.friends = friends;
-    this.saying = saying
+    this.saying = saying;
+    this.props = ["spacies", "name", "gender", "paws", "legs", "hands", "friends", "saying"];
+  }
+
+  showAll() {
+    return print(
+      this.props
+    )
   }
 }
 
@@ -138,10 +145,26 @@ class Man extends Human {
   }
 }
 
+class CatWoman extends Human {
+  constructor(name, saying) {
+    super('Selina');
+    this.cat = cat;
+    this.saying = cat.saying;
+  }
+}
+
 
 
 const dog = new Dog('Ronnie', 'male');
 const cat = new Cat('Reggie', 'male');
 const woman = new Woman('Agnes', 'Hello');
-const man = new Man('Mark', 'Hi', cat, dog)
-console.log(dog, cat, woman, man);
+const man = new Man('Mark', 'Hi', cat, dog);
+const catWoman = new CatWoman(cat)
+console.log(dog, cat, woman, man, catWoman);
+
+
+const allInhabitants = [dog, cat, woman, man, catWoman];
+
+for (let inhabitant of allInhabitants) {
+  inhabitant.showAll();
+}
