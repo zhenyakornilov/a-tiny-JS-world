@@ -85,10 +85,9 @@ class Man extends Human {
 }
 
 class CatWoman extends Human {
-  constructor(name, saying) {
-    super("Selina");
-    this.cat = cat;
-    this.saying = cat.saying;
+  constructor(ref) {
+    super("Selina", "female");
+    this.saying = ref.saying;
     this.species = "catwoman";
   }
 }
@@ -98,7 +97,6 @@ const cat = new Cat("Reggie", "male");
 const woman = new Woman("Agnes", "Hello");
 const man = new Man("Mark", "Hi", [cat, dog]);
 const catWoman = new CatWoman(cat);
-console.log(dog, cat, woman, man, catWoman);
 
 const allInhabitants = [dog, cat, woman, man, catWoman];
 
