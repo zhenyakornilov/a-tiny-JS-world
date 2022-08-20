@@ -20,20 +20,18 @@ class Inhabitant {
     ];
   }
 
-  showAll() {
-    return print(
-      this.props
-        .map((key) => {
-          if (key === "friends") {
-            if (this[key].length === 0) {
-              return "No friends";
-            }
-            return this[key].map((friend) => friend.name).join(", ");
+  toString() {
+    return this.props
+      .map((key) => {
+        if (key === "friends") {
+          if (this[key].length === 0) {
+            return "No friends";
           }
-          return this[key];
-        })
-        .join("; ")
-    );
+          return this[key].map((friend) => friend.name).join(", ");
+        }
+        return this[key];
+      })
+      .join("; ");
   }
 }
 
@@ -101,5 +99,5 @@ const catWoman = new CatWoman(cat);
 const allInhabitants = [dog, cat, woman, man, catWoman];
 
 for (let inhabitant of allInhabitants) {
-  inhabitant.showAll();
+  print(inhabitant);
 }
