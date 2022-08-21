@@ -1,20 +1,14 @@
 class Inhabitant {
-  constructor(species, name, gender, paws, legs, hands, saying) {
+  constructor(species, name, gender, saying) {
     this.species = species;
     this.name = name;
     this.gender = gender;
-    this.paws = paws;
-    this.legs = legs;
-    this.hands = hands;
     this.friends = [];
     this.saying = saying;
     this.props = [
       "species",
       "name",
       "gender",
-      "paws",
-      "legs",
-      "hands",
       "friends",
       "saying",
     ];
@@ -39,8 +33,11 @@ class Animal extends Inhabitant {
   constructor(species, name, gender, friends, saying) {
     super(species, name, gender, friends, saying);
     this.paws = 4;
-    this.legs = 0;
-    this.hands = 0;
+  }
+
+  toString() {
+    console.log('Inhabitant child Animal method');
+    return super.toString() + `; ${this.paws} paws`
   }
 }
 
@@ -61,9 +58,13 @@ class Cat extends Animal {
 class Human extends Inhabitant {
   constructor(name, gender, friends, saying) {
     super("human", name, gender, friends, saying);
-    this.paws = 0;
     this.legs = 2;
     this.hands = 2;
+  }
+
+  toString() {
+    console.log('Inhabitant child Human method')
+    return super.toString() + `; ${this.legs} legs, ${this.hands} hands`
   }
 }
 
