@@ -5,13 +5,7 @@ class Inhabitant {
     this.gender = gender;
     this.friends = [];
     this.saying = saying;
-    this.props = [
-      "species",
-      "name",
-      "gender",
-      "friends",
-      "saying",
-    ];
+    this.props = ["species", "name", "gender", "friends", "saying"];
   }
 
   toString() {
@@ -36,19 +30,19 @@ class Animal extends Inhabitant {
   }
 
   toString() {
-    return super.toString() + `; ${this.paws} paws`
+    return super.toString() + `; ${this.paws} paws`;
   }
 }
 
 class Dog extends Animal {
   constructor(name, gender) {
-    super("dog", name, gender, 'Woof-woof');
+    super("dog", name, gender, "Woof-woof");
   }
 }
 
 class Cat extends Animal {
   constructor(name, gender) {
-    super("cat", name, gender, 'Meoooow');
+    super("cat", name, gender, "Meoooow");
   }
 }
 
@@ -60,20 +54,19 @@ class Human extends Inhabitant {
   }
 
   toString() {
-    return super.toString() + `; ${this.legs} legs, ${this.hands} hands`
+    return super.toString() + `; ${this.legs} legs, ${this.hands} hands`;
   }
 }
 
 class Woman extends Human {
-  constructor(name, saying, friends) {
+  constructor(name, saying) {
     super(name, "female");
     this.saying = saying;
-    this.friends = friends;
   }
 }
 
 class Man extends Human {
-  constructor(name, saying, friends=[]) {
+  constructor(name, saying, friends = []) {
     super(name, "male");
     this.saying = saying;
     this.friends = friends;
@@ -90,10 +83,10 @@ class CatWoman extends Human {
 }
 
 const dog = new Dog("Ronnie", "male");
-const cat = new Cat("Reggie", "male", [dog]);
-const woman = new Woman("Agnes", "Hello", [cat]);
+const cat = new Cat("Reggie", "male");
+const woman = new Woman("Agnes", "Hello");
 const man = new Man("Mark", "Hi", [cat, dog]);
-const catWoman = new CatWoman(cat, [woman, cat]);
+const catWoman = new CatWoman(cat);
 
 const allInhabitants = [dog, cat, woman, man, catWoman];
 
