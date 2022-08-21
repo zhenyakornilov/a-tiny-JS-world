@@ -30,13 +30,12 @@ class Inhabitant {
 }
 
 class Animal extends Inhabitant {
-  constructor(species, name, gender, friends, saying) {
-    super(species, name, gender, friends, saying);
+  constructor(species, name, gender, saying) {
+    super(species, name, gender, saying);
     this.paws = 4;
   }
 
   toString() {
-    console.log('Inhabitant child Animal method');
     return super.toString() + `; ${this.paws} paws`
   }
 }
@@ -56,14 +55,13 @@ class Cat extends Animal {
 }
 
 class Human extends Inhabitant {
-  constructor(name, gender, friends, saying) {
-    super("human", name, gender, friends, saying);
+  constructor(name, gender, saying) {
+    super("human", name, gender, saying);
     this.legs = 2;
     this.hands = 2;
   }
 
   toString() {
-    console.log('Inhabitant child Human method')
     return super.toString() + `; ${this.legs} legs, ${this.hands} hands`
   }
 }
